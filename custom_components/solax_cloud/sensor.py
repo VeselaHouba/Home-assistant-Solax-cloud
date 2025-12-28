@@ -82,6 +82,7 @@ SENSOR_TYPES = [
         translation_key="inverter_size",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.KILO_WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="idc1",
@@ -89,6 +90,7 @@ SENSOR_TYPES = [
         translation_key="mppt1_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement="A",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="idc2",
@@ -96,6 +98,7 @@ SENSOR_TYPES = [
         translation_key="mppt2_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement="A",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="vdc1",
@@ -103,6 +106,7 @@ SENSOR_TYPES = [
         translation_key="mppt1_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement="V",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="vdc2",
@@ -110,6 +114,7 @@ SENSOR_TYPES = [
         translation_key="mppt2_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement="V",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="iac1",
@@ -117,6 +122,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase1_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement="A",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="vac1",
@@ -124,6 +130,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase1_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement="V",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="acpower",
@@ -131,6 +138,7 @@ SENSOR_TYPES = [
         translation_key="ac_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT
     ),
     SensorEntityDescription(
         key="temperature",
@@ -138,6 +146,7 @@ SENSOR_TYPES = [
         translation_key="inverter_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement="°C",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="yieldtoday",
@@ -145,6 +154,7 @@ SENSOR_TYPES = [
         translation_key="yield_today",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement="kWh",
+        state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorEntityDescription(
         key="yieldtotal",
@@ -152,6 +162,7 @@ SENSOR_TYPES = [
         translation_key="yield_total",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement="kWh",
+        state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorEntityDescription(
         key="feedinpower",
@@ -159,6 +170,7 @@ SENSOR_TYPES = [
         translation_key="feedin_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="powerdc1",
@@ -166,6 +178,7 @@ SENSOR_TYPES = [
         translation_key="mppt1_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="powerdc2",
@@ -173,6 +186,7 @@ SENSOR_TYPES = [
         translation_key="mppt2_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="pac1",
@@ -180,6 +194,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase1_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="pac2",
@@ -187,6 +202,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase2_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="pac3",
@@ -194,6 +210,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase3_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="iac2",
@@ -201,6 +218,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase2_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement="A",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="iac3",
@@ -208,6 +226,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase3_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement="A",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="vac2",
@@ -215,6 +234,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase2_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement="V",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="vac3",
@@ -222,6 +242,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase3_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement="V",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="fac1",
@@ -229,6 +250,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase1_frequency",
         device_class=SensorDeviceClass.FREQUENCY,
         native_unit_of_measurement="Hz",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="fac2",
@@ -236,6 +258,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase2_frequency",
         device_class=SensorDeviceClass.FREQUENCY,
         native_unit_of_measurement="Hz",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="fac3",
@@ -243,6 +266,7 @@ SENSOR_TYPES = [
         translation_key="ac_phase3_frequency",
         device_class=SensorDeviceClass.FREQUENCY,
         native_unit_of_measurement="Hz",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="feedinenergy",
@@ -272,6 +296,7 @@ SENSOR_TYPES = [
         translation_key="battery_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement="V",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="batCurrent",
@@ -279,6 +304,7 @@ SENSOR_TYPES = [
         translation_key="battery current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement="A",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="temperBoard",
@@ -286,6 +312,7 @@ SENSOR_TYPES = [
         translation_key="battery_temperature_1",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement="°C",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="surplusEnergy",
@@ -293,6 +320,7 @@ SENSOR_TYPES = [
         translation_key="surplus_energy",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="chargeEnergy",
@@ -300,6 +328,7 @@ SENSOR_TYPES = [
         translation_key="charge_energy",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="dischargeEnergy",
@@ -307,6 +336,7 @@ SENSOR_TYPES = [
         translation_key="discharge_energy",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="acenergyin",
@@ -314,6 +344,7 @@ SENSOR_TYPES = [
         translation_key="grid_energy",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="pvenergy",
@@ -321,6 +352,7 @@ SENSOR_TYPES = [
         translation_key="pv_energy",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="soc",
@@ -328,6 +360,7 @@ SENSOR_TYPES = [
         translation_key="soc",
         device_class=SensorDeviceClass.BATTERY,
         native_unit_of_measurement=PERCENTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="battemper",
@@ -335,6 +368,7 @@ SENSOR_TYPES = [
         translation_key="battery_temperature_2",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement="°C",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="veps1",
@@ -342,6 +376,7 @@ SENSOR_TYPES = [
         translation_key="eps_phase1_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement="V",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="veps2",
@@ -349,6 +384,7 @@ SENSOR_TYPES = [
         translation_key="eps_phase2_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement="V",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="veps3",
@@ -356,6 +392,7 @@ SENSOR_TYPES = [
         translation_key="eps_phase3_voltage",
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement="V",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="ieps1",
@@ -363,6 +400,7 @@ SENSOR_TYPES = [
         translation_key="eps_phase1_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement="A",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="ieps2",
@@ -370,6 +408,7 @@ SENSOR_TYPES = [
         translation_key="eps_phase2_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement="A",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="ieps3",
@@ -377,6 +416,7 @@ SENSOR_TYPES = [
         translation_key="eps_phase3_current",
         device_class=SensorDeviceClass.CURRENT,
         native_unit_of_measurement="A",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="peps1",
@@ -384,6 +424,7 @@ SENSOR_TYPES = [
         translation_key="eps_phase1_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="peps2",
@@ -391,6 +432,7 @@ SENSOR_TYPES = [
         translation_key="eps_phase2_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="peps3",
@@ -398,6 +440,7 @@ SENSOR_TYPES = [
         translation_key="eps_phase3_power",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="epsfreq",
@@ -405,6 +448,7 @@ SENSOR_TYPES = [
         translation_key="eps_frequency",
         device_class=SensorDeviceClass.FREQUENCY,
         native_unit_of_measurement="Hz",
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
         key="batcycle",

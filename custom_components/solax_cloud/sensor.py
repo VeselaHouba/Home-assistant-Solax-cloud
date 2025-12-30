@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -62,6 +62,41 @@ class SolaxCloudSensor(CoordinatorEntity[solaxcloudCoordinator], SensorEntity):
     def native_value(self) -> datetime | None:
        #print("called")
        """Return the state of the sensor."""
+       if self.entity_description.key == "total_solar_power":
+           # Calculate total solar production from all MPPT inputs
+           data = self.coordinator.data
+           total = 0.0
+           for key in ["powerdc1", "powerdc2", "powerdc3", "powerdc4"]:
+               value = data.get(key)
+               if value is not None:
+                   try:
+                       total += float(value)
+                   except (ValueError, TypeError):
+                       pass
+           return total
+       if self.entity_description.key == "utcDateTime":
+           # Parse ISO 8601 timestamp string to datetime object
+           # Note: The API appears to return time in a timezone that's not actually UTC
+           # Based on user report, it's 7 hours behind actual UTC
+           value = self.coordinator.data.get(self.entity_description.key)
+           if value is None:
+               return None
+           if isinstance(value, datetime):
+               return value
+           if isinstance(value, str):
+               try:
+                   # Handle ISO 8601 format: "2025-12-28T09:43:55Z"
+                   # The API returns time that's 7 hours behind actual UTC
+                   # Parse as naive datetime first, then add 7 hours to get correct UTC
+                   iso_string = value.replace('Z', '')
+                   dt = datetime.fromisoformat(iso_string)
+                   # Add 7 hours to correct the timezone offset
+                   dt_corrected = dt + timedelta(hours=7)
+                   # Make it timezone-aware (UTC)
+                   return dt_corrected.replace(tzinfo=timezone.utc)
+               except (ValueError, TypeError, AttributeError):
+                   return None
+           return None
        return self.coordinator.data.get(self.entity_description.key)
 
 
@@ -189,6 +224,14 @@ SENSOR_TYPES = [
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(
+        key="total_solar_power",
+        name="Total Solar Power",
+        translation_key="total_solar_power",
+        device_class=SensorDeviceClass.POWER,
+        native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
         key="pac1",
         name="AC phase 1 power",
         translation_key="ac_phase1_power",
@@ -289,6 +332,12 @@ SENSOR_TYPES = [
         name="Last cloud upload",
         translation_key="upload_time",
         # device_class=SensorDeviceClass.TIMESTAMP,
+    ),
+    SensorEntityDescription(
+        key="utcDateTime",
+        name="UTC Date Time",
+        translation_key="utc_date_time",
+        device_class=SensorDeviceClass.TIMESTAMP,
     ),
     SensorEntityDescription(
         key="batVoltage",
